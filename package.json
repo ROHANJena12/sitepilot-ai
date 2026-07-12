@@ -1,0 +1,21 @@
+{
+  "name": "sitepilot-ai",
+  "version": "0.0.0",
+  "private": true,
+  "description": "SitePilot AI — Your AI-powered Website Intelligence Platform",
+  "packageManager": "pnpm@9.15.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "format": "turbo run format",
+    "test": "turbo run test",
+    "clean": "turbo run clean"
+  },
+  "devDependencies": {
+    "turbo": "^2.3.0"
+  }
+}

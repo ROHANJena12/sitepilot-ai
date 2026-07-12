@@ -1,0 +1,92 @@
+/**
+ * Design tokens for SitePilot AI — aligned with docs/DESIGN_SYSTEM.md
+ * Dark-first. Do not hardcode colors in components; use these variables / Tailwind semantic classes.
+ */
+
+:root,
+[data-theme="dark"],
+.dark {
+  --color-bg: #09090b;
+  --color-bg-subtle: #0c0c0e;
+  --color-surface: #121216;
+  --color-surface-hover: #1a1a1f;
+  --color-border: #27272a;
+  --color-border-strong: #3f3f46;
+  --color-text: #fafafa;
+  --color-text-muted: #a1a1aa;
+  --color-text-subtle: #71717a;
+  --color-text-inverse: #09090b;
+
+  --color-accent: #2ee6a6;
+  --color-accent-hover: #5ef0bc;
+  --color-accent-muted: #2ee6a61a;
+  --color-accent-fg: #04140f;
+
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-info: #38bdf8;
+
+  --priority-critical: #ef4444;
+  --priority-high: #f97316;
+  --priority-medium: #eab308;
+  --priority-low: #22c55e;
+
+  --score-good: #22c55e;
+  --score-mid: #eab308;
+  --score-poor: #ef4444;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.5);
+
+  --motion-fast: 120ms;
+  --motion-base: 200ms;
+  --motion-slow: 320ms;
+  --motion-score: 600ms;
+
+  --opacity-disabled: 0.5;
+}
+
+[data-theme="light"],
+.light {
+  --color-bg: #fafafa;
+  --color-bg-subtle: #f4f4f5;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f4f4f5;
+  --color-border: #e4e4e7;
+  --color-border-strong: #d4d4d8;
+  --color-text: #18181b;
+  --color-text-muted: #71717a;
+  --color-text-subtle: #a1a1aa;
+  --color-text-inverse: #fafafa;
+
+  --color-accent: #0f9f6e;
+  --color-accent-hover: #0b7f58;
+  --color-accent-muted: #0f9f6e1a;
+  --color-accent-fg: #ffffff;
+
+  --color-success: #16a34a;
+  --color-warning: #d97706;
+  --color-danger: #dc2626;
+  --color-info: #0284c7;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.16);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-fast: 0ms;
+    --motion-base: 0ms;
+    --motion-slow: 0ms;
+    --motion-score: 0ms;
+  }
+}

@@ -1,0 +1,26 @@
+# SitePilot AI — Release
+# Responsibility: Tag, changelog, and publish release artifacts.
+# Scaffold only — real release automation will be added later.
+
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+jobs:
+  scaffold:
+    name: Release scaffold
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Placeholder — release not configured yet
+        run: |
+          echo "SitePilot AI release scaffold"
+          echo "TODO: generate changelog / GitHub Release"
+          echo "TODO: publish packages or deploy artifacts"
+          echo "Release placeholder complete."

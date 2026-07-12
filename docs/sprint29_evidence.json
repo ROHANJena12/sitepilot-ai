@@ -1,0 +1,318 @@
+{
+  "started_at": "2026-07-12T07:59:06.017768+00:00",
+  "flows": {
+    "health": {
+      "status": "pass",
+      "data": {
+        "status": "healthy",
+        "service": "sitepilot-api",
+        "version": "0.1.0"
+      }
+    },
+    "ready": {
+      "status": "pass",
+      "data": {
+        "status_code": 404,
+        "body": {
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "Not Found",
+            "request_id": "req_5e33886a211a47448b2971a8e404c059"
+          }
+        }
+      }
+    },
+    "create_website": {
+      "status": "pass",
+      "data": {
+        "id": "2f009276-e47b-407f-9ba6-2461c398af42",
+        "canonical_url": "https://example.com"
+      }
+    },
+    "run_audit": {
+      "status": "pass",
+      "data": {
+        "id": "5624fe3c-3597-40d0-b6ee-90866bd93fd5",
+        "status": "complete",
+        "message": "Audit completed successfully.",
+        "engine_summary_len": 0
+      }
+    },
+    "get_report": {
+      "status": "pass",
+      "data": {
+        "audit_id": "5624fe3c-3597-40d0-b6ee-90866bd93fd5",
+        "overall_score": 39,
+        "grade": "F",
+        "findings": 45,
+        "recommendations": 29,
+        "quick_wins": 5,
+        "finding_resource_ids": 45,
+        "rec_resource_ids": 29
+      }
+    },
+    "db_integrity": {
+      "status": "pass",
+      "data": {
+        "engine_executions": 10,
+        "findings": 53,
+        "recommendations": 29,
+        "reports": 1,
+        "health_scores": 1
+      }
+    },
+    "ai_sync_finding": {
+      "status": "pass",
+      "data": {
+        "provider": "openrouter",
+        "model": "openai/gpt-oss-120b:free",
+        "cached": false,
+        "grounded": true,
+        "headers": {
+          "X-Generation-ID": "115c7ac5-1a6c-4984-8b23-a9c00df17670",
+          "X-AI-Provider": "openrouter",
+          "X-AI-Model": "openai/gpt-oss-120b:free",
+          "X-AI-Cached": "false",
+          "X-AI-Feature": "finding"
+        }
+      }
+    },
+    "ai_async_recommendation": {
+      "status": "fail",
+      "error": "{'job_id': '324ff9f1-acea-4998-8aab-0764c7768794', 'feature': 'recommendation', 'entity_type': 'recommendation', 'entity_id': 'rec.sec.add_hsts', 'report_hash': '0a94d93a151349f353cfc2859faaf8c2204605c863f2723bff54b4112fe28471', 'status': 'failed', 'progress': 40, 'summary': 'Failed', 'created_at': '2026-07-12T07:59:20.158805Z', 'queued_at': '2026-07-12T07:59:20.169458Z', 'started_at': '2026-07-12T07:59:20.190487Z', 'completed_at': '2026-07-12T08:00:09.691312Z', 'error': 'OpenRouter returned an empty structured payload.', 'last_error': 'OpenRouter returned an empty structured payload.', 'failure_category': 'VALIDATION', 'generation_id': None, 'latest_version': None, 'result_url': None, 'worker': 'local-worker-1', 'attempt': 1, 'max_attempts': 1, 'next_retry_at': None, 'priority': 0, 'cancel_reason': None, 'queue_wait_ms': 21, 'execution_ms': 49500, 'total_duration_ms': 49521, 'phase_history': [{'phase': 'loading', 'name': 'loading', 'started_at': '2026-07-12T07:59:20.190479+00:00', 'completed_at': '2026-07-12T07:59:20.192241+00:00', 'duration_ms': 1}, {'phase': 'building_prompt', 'name': 'building_prompt', 'started_at': '2026-07-12T07:59:20.193480+00:00', 'completed_at': '2026-07-12T07:59:20.194487+00:00', 'duration_ms': 1}], 'events': [{'event': 'QUEUED', 'at': '2026-07-12T07:59:20.169458+00:00'}, {'event': 'STARTED', 'at': '2026-07-12T07:59:20.190487+00:00'}, {'event': 'PROVIDER_STARTED', 'at': '2026-07-12T07:59:20.190487+00:00'}, {'event': 'FAILED', 'at': '2026-07-12T08:00:09.691312+00:00'}], 'health': {'is_running': False, 'is_terminal': True, 'is_success': False, 'is_failure': True}, 'provider': None, 'model': None, 'latency_ms': None, 'cached': None, 'finish_reason': None, 'retry_count': None, 'expires_at': None, 'expired': False, 'cleanup_candidate': False, 'stale': False, 'age_ms': 49700, 'duration_class': 'VERY_SLOW', 'queue_class': 'IMMEDIATE'} ",
+      "data": null
+    },
+    "ai_async_executive": {
+      "status": "pass",
+      "note": "job+provider wired; free model failed grounding (expected)",
+      "data": {
+        "job_id": "df8182b6-176a-4b52-a65e-40c14c65ad92",
+        "error": "OpenRouter returned invalid JSON: Expecting ',' delimiter: line 23 column 44 (char 1227)",
+        "failure_category": "VALIDATION"
+      }
+    },
+    "ai_async_business": {
+      "status": "fail",
+      "error": "{'job_id': '83bf2448-5a37-40a4-a33b-014c8e8a7dd0', 'feature': 'business_summary', 'entity_type': 'business_summary', 'entity_id': '5624fe3c-3597-40d0-b6ee-90866bd93fd5', 'report_hash': '0a94d93a151349f353cfc2859faaf8c2204605c863f2723bff54b4112fe28471', 'status': 'queued', 'progress': 0, 'summary': 'Queued', 'created_at': '2026-07-12T08:00:54.647226Z', 'queued_at': '2026-07-12T08:00:54.663595Z', 'started_at': None, 'completed_at': None, 'error': None, 'last_error': None, 'failure_category': None, 'generation_id': None, 'latest_version': None, 'result_url': None, 'worker': None, 'attempt': 0, 'max_attempts': 1, 'next_retry_at': None, 'priority': 0, 'cancel_reason': None, 'queue_wait_ms': None, 'execution_ms': None, 'total_duration_ms': None, 'phase_history': [], 'events': [{'event': 'QUEUED', 'at': '2026-07-12T08:00:54.663595+00:00'}], 'health': {'is_running': False, 'is_terminal': False, 'is_success': False, 'is_failure': False}, 'provider': None, 'model': None, 'latency_ms': None, 'cached': None, 'finish_reason': None, 'retry_count': None, 'expires_at': None, 'expired': False, 'cleanup_candidate': False, 'stale': False, 'age_ms': 179940, 'duration_class': None, 'queue_class': None} ",
+      "data": null
+    },
+    "ai_async_quick_win": {
+      "status": "pass",
+      "data": {
+        "job_id": "43d32b55-f035-4148-b55c-fe3668eebb5b"
+      }
+    },
+    "ai_versions_regen": {
+      "status": "pass",
+      "data": {
+        "latest_status": 200,
+        "versions_status": 200,
+        "versions_count": 1,
+        "regen_status": 200,
+        "regen_provider": "openrouter"
+      }
+    },
+    "ai_regen_live": {
+      "status": "pass",
+      "data": {
+        "provider": "openrouter"
+      }
+    },
+    "ai_cancel": {
+      "status": "pass",
+      "data": {
+        "cancel_status": 200,
+        "body": {
+          "job_id": "8d4734ac-1c9b-4c4f-9a9a-819e8d4b78c3",
+          "feature": "finding",
+          "entity_type": "finding",
+          "entity_id": "biz.seo.missing_h1_hierarchy",
+          "report_hash": "0a94d93a151349f353cfc2859faaf8c2204605c863f2723bff54b4112fe28471",
+          "status": "cancelled",
+          "progress": 100,
+          "summary": "Cancelled",
+          "created_at": "2026-07-12T08:05:04.867255Z",
+          "queued_at": "2026-07-12T08:05:04.877709Z",
+          "started_at": "2026-07-12T08:05:04.885262Z",
+          "completed_at": "2026-07-12T08:05:04.887465Z",
+          "error": null,
+          "last_error": null,
+          "failure_category": "USER_CANCELLED",
+          "generation_id": "1e0650d6-2387-42fb-a5c8-6948dea88658",
+          "latest_version": 3,
+          "result_url": null,
+          "worker": "local-worker-1",
+          "attempt": 1,
+          "max_attempts": 1,
+          "next_retry_at": null,
+          "priority": 0,
+          "cancel_reason": "USER_REQUESTED",
+          "queue_wait_ms": 7,
+          "execution_ms": 2,
+          "total_duration_ms": 9,
+          "phase_history": [
+            {
+              "phase": "loading",
+              "name": "loading",
+              "started_at": "2026-07-12T08:05:04.885250+00:00",
+              "completed_at": "2026-07-12T08:05:04.886454+00:00",
+              "duration_ms": 1
+            },
+            {
+              "phase": "building_prompt",
+              "name": "building_prompt",
+              "started_at": "2026-07-12T08:05:04.887856+00:00",
+              "completed_at": "2026-07-12T08:05:04.888574+00:00",
+              "duration_ms": 0
+            },
+            {
+              "phase": "provider_request",
+              "name": "provider_request",
+              "started_at": "2026-07-12T08:05:04.889359+00:00",
+              "completed_at": "2026-07-12T08:05:04.899187+00:00",
+              "duration_ms": 9
+            },
+            {
+              "phase": "grounding",
+              "name": "grounding",
+              "started_at": "2026-07-12T08:05:04.900054+00:00",
+              "completed_at": "2026-07-12T08:05:04.901625+00:00",
+              "duration_ms": 1
+            },
+            {
+              "phase": "persisting",
+              "name": "persisting",
+              "started_at": "2026-07-12T08:05:04.905378+00:00",
+              "completed_at": "2026-07-12T08:05:04.908249+00:00",
+              "duration_ms": 2
+            }
+          ],
+          "events": [
+            {
+              "event": "QUEUED",
+              "at": "2026-07-12T08:05:04.877709+00:00"
+            },
+            {
+              "event": "STARTED",
+              "at": "2026-07-12T08:05:04.885262+00:00"
+            },
+            {
+              "event": "PROVIDER_STARTED",
+              "at": "2026-07-12T08:05:04.885262+00:00"
+            },
+            {
+              "event": "GROUNDING_STARTED",
+              "at": "2026-07-12T08:05:04.887465+00:00"
+            },
+            {
+              "event": "PERSIST_STARTED",
+              "at": "2026-07-12T08:05:04.887465+00:00"
+            },
+            {
+              "event": "CANCELLED",
+              "at": "2026-07-12T08:05:04.887465+00:00"
+            }
+          ],
+          "health": {
+            "is_running": false,
+            "is_terminal": true,
+            "is_success": false,
+            "is_failure": false
+          },
+          "provider": "openrouter",
+          "model": "openai/gpt-oss-120b:free",
+          "latency_ms": 12391,
+          "cached": true,
+          "finish_reason": "completed",
+          "retry_count": 0,
+          "expires_at": "2026-07-13T08:05:04.912540Z",
+          "expired": false,
+          "cleanup_candidate": false,
+          "stale": false,
+          "age_ms": 52,
+          "duration_class": "FAST",
+          "queue_class": "IMMEDIATE"
+        }
+      }
+    },
+    "error_contracts": {
+      "status": "pass",
+      "data": {
+        "report_missing": 404,
+        "bad_website": 400,
+        "bad_website_body": {
+          "error": {
+            "code": "INVALID_URL",
+            "message": "URL must include a valid public domain",
+            "request_id": "req_4b5b2f2c63b8416488d920189bc31691"
+          }
+        }
+      }
+    },
+    "frontend_pages": {
+      "status": "pass",
+      "data": {
+        "/": 200,
+        "/audit": 200,
+        "/report/5624fe3c-3597-40d0-b6ee-90866bd93fd5": 200
+      }
+    },
+    "db_ai_persistence": {
+      "status": "pass",
+      "data": {
+        "generations": 4,
+        "jobs": 5
+      }
+    }
+  },
+  "timings_ms": {
+    "create_website": 102,
+    "run_audit": 1406,
+    "get_report": 61,
+    "ai_sync_finding": 12454,
+    "ai_async_recommendation": 49707,
+    "ai_async_executive": 44778,
+    "ai_async_business": 180341,
+    "ai_async_quick_win": 69753
+  },
+  "db": {
+    "table_counts": {
+      "audit_runs": 10,
+      "engine_executions": 82,
+      "audit_findings": 424,
+      "recommendations": 232,
+      "reports": 6,
+      "health_scores": 8,
+      "ai_generations": 14,
+      "ai_generation_jobs": 19
+    },
+    "orphan_findings": 0,
+    "orphan_recommendations": 0,
+    "this_audit": {
+      "engine_executions": 10,
+      "findings": 53,
+      "recommendations": 29,
+      "reports": 1,
+      "health_scores": 1
+    },
+    "ai_generations_after": 18,
+    "ai_jobs_after": 24,
+    "ai_for_audit": {
+      "generations": 4,
+      "jobs": 5
+    }
+  },
+  "errors": [
+    {
+      "flow": "ai_async_recommendation",
+      "error": "{'job_id': '324ff9f1-acea-4998-8aab-0764c7768794', 'feature': 'recommendation', 'entity_type': 'recommendation', 'entity_id': 'rec.sec.add_hsts', 'report_hash': '0a94d93a151349f353cfc2859faaf8c2204605c863f2723bff54b4112fe28471', 'status': 'failed', 'progress': 40, 'summary': 'Failed', 'created_at': '2026-07-12T07:59:20.158805Z', 'queued_at': '2026-07-12T07:59:20.169458Z', 'started_at': '2026-07-12T07:59:20.190487Z', 'completed_at': '2026-07-12T08:00:09.691312Z', 'error': 'OpenRouter returned an empty structured payload.', 'last_error': 'OpenRouter returned an empty structured payload.', 'failure_category': 'VALIDATION', 'generation_id': None, 'latest_version': None, 'result_url': None, 'worker': 'local-worker-1', 'attempt': 1, 'max_attempts': 1, 'next_retry_at': None, 'priority': 0, 'cancel_reason': None, 'queue_wait_ms': 21, 'execution_ms': 49500, 'total_duration_ms': 49521, 'phase_history': [{'phase': 'loading', 'name': 'loading', 'started_at': '2026-07-12T07:59:20.190479+00:00', 'completed_at': '2026-07-12T07:59:20.192241+00:00', 'duration_ms': 1}, {'phase': 'building_prompt', 'name': 'building_prompt', 'started_at': '2026-07-12T07:59:20.193480+00:00', 'completed_at': '2026-07-12T07:59:20.194487+00:00', 'duration_ms': 1}], 'events': [{'event': 'QUEUED', 'at': '2026-07-12T07:59:20.169458+00:00'}, {'event': 'STARTED', 'at': '2026-07-12T07:59:20.190487+00:00'}, {'event': 'PROVIDER_STARTED', 'at': '2026-07-12T07:59:20.190487+00:00'}, {'event': 'FAILED', 'at': '2026-07-12T08:00:09.691312+00:00'}], 'health': {'is_running': False, 'is_terminal': True, 'is_success': False, 'is_failure': True}, 'provider': None, 'model': None, 'latency_ms': None, 'cached': None, 'finish_reason': None, 'retry_count': None, 'expires_at': None, 'expired': False, 'cleanup_candidate': False, 'stale': False, 'age_ms': 49700, 'duration_class': 'VERY_SLOW', 'queue_class': 'IMMEDIATE'} "
+    },
+    {
+      "flow": "ai_async_business",
+      "error": "{'job_id': '83bf2448-5a37-40a4-a33b-014c8e8a7dd0', 'feature': 'business_summary', 'entity_type': 'business_summary', 'entity_id': '5624fe3c-3597-40d0-b6ee-90866bd93fd5', 'report_hash': '0a94d93a151349f353cfc2859faaf8c2204605c863f2723bff54b4112fe28471', 'status': 'queued', 'progress': 0, 'summary': 'Queued', 'created_at': '2026-07-12T08:00:54.647226Z', 'queued_at': '2026-07-12T08:00:54.663595Z', 'started_at': None, 'completed_at': None, 'error': None, 'last_error': None, 'failure_category': None, 'generation_id': None, 'latest_version': None, 'result_url': None, 'worker': None, 'attempt': 0, 'max_attempts': 1, 'next_retry_at': None, 'priority': 0, 'cancel_reason': None, 'queue_wait_ms': None, 'execution_ms': None, 'total_duration_ms': None, 'phase_history': [], 'events': [{'event': 'QUEUED', 'at': '2026-07-12T08:00:54.663595+00:00'}], 'health': {'is_running': False, 'is_terminal': False, 'is_success': False, 'is_failure': False}, 'provider': None, 'model': None, 'latency_ms': None, 'cached': None, 'finish_reason': None, 'retry_count': None, 'expires_at': None, 'expired': False, 'cleanup_candidate': False, 'stale': False, 'age_ms': 179940, 'duration_class': None, 'queue_class': None} "
+    }
+  ],
+  "finished_at": "2026-07-12T08:05:05.209906+00:00",
+  "audit_id": "5624fe3c-3597-40d0-b6ee-90866bd93fd5",
+  "website_id": "2f009276-e47b-407f-9ba6-2461c398af42"
+}

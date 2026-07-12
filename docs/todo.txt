@@ -1,0 +1,43 @@
+Documentation
+
+Update PRD terminology
+
+processing
+↓
+
+analyzing
+
+current_step
+↓
+
+current_engine
+
+Coarse statuses
+↓
+
+Pipeline statuses
+
+
+Cursor suggested extending the Document model with more strongly typed fields (landmarks, buttons, tables, media).
+
+I agree, but not yet.
+
+Let's first finish all intelligence engines using the current Document. After we have real usage across SEO, Accessibility, Security, and Performance, we'll know which additions genuinely belong in the shared model. That avoids over-engineering the parser too early.
+
+
+
+Small future enhancement (not something to implement now)
+
+The only thing I'd consider adding in a future sprint is a report fingerprint for engine versions, for example:
+
+{
+  "report_hash": "...",
+  "pipeline_version": "pipeline.v1",
+  "engine_versions": {
+    "seo": "1.0.3",
+    "security": "1.2.0",
+    "performance": "1.1.5"
+  }
+}
+
+This would let you know which engine implementations produced a report. If an engine's rules change later, you can tell whether an old report should be regenerated. This is useful for audits over long periods, but it's not necessary right now.

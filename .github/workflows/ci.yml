@@ -1,0 +1,77 @@
+# SitePilot AI — Continuous Integration
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  api:
+    name: API tests
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: sitepilot
+          POSTGRES_PASSWORD: sitepilot
+          POSTGRES_DB: sitepilot_test
+        ports:
+          - 5434:5432
+        options: >-
+          --health-cmd "pg_isready -U sitepilot -d sitepilot_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    defaults:
+      run:
+        working-directory: apps/api
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: apps/api/pyproject.toml
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+      - name: Ruff
+        run: ruff check app tests
+      - name: Pytest
+        env:
+          ENVIRONMENT: testing
+          SITEPILOT_TESTING: "1"
+          TEST_DATABASE_URL: postgresql+asyncpg://sitepilot:sitepilot@localhost:5434/sitepilot_test
+          SECRET_KEY: ci-test-secret
+        run: pytest -q --tb=line
+
+  web:
+    name: Web typecheck & build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: pnpm
+      - name: Install
+        run: pnpm install --frozen-lockfile
+      - name: Typecheck
+        run: pnpm --filter @sitepilot/web exec tsc --noEmit
+      - name: Lint
+        run: pnpm --filter @sitepilot/web lint
+      - name: Build
+        run: pnpm --filter @sitepilot/web build
+        env:
+          NEXT_TELEMETRY_DISABLED: "1"

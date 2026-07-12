@@ -1,0 +1,2 @@
+# Runtime PIDs for ./scripts/start-dev.sh (api.pid / web.pid).
+# Intentionally empty — PID files are created when the stack starts.

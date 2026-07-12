@@ -1,0 +1,19 @@
+# Dependencies & build
+node_modules
+.next
+.turbo
+out
+dist
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# Debug / OS
+npm-debug.log*
+.DS_Store
+*.pem
+
+# TypeScript
+next-env.d.ts

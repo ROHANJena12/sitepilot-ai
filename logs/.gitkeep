@@ -1,0 +1,2 @@
+# Runtime logs for ./scripts/start-dev.sh (api.log / web.log).
+# Intentionally empty — log files are created when the stack starts.
