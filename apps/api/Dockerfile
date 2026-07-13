@@ -11,10 +11,11 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-COPY pyproject.toml README.md ./
-COPY app ./app
-COPY alembic.ini ./
-COPY alembic ./alembic
+COPY apps/api/pyproject.toml ./
+COPY apps/api/README.md ./
+COPY apps/api/app ./app
+COPY apps/api/alembic.ini ./
+COPY apps/api/alembic ./alembic
 
 RUN pip install --upgrade pip \
     && pip install .
