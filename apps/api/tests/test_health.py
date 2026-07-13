@@ -25,6 +25,30 @@ def test_health_endpoint(client: TestClient) -> None:
     assert response.headers.get("X-Content-Type-Options") == "nosniff"
     assert response.headers.get("X-Frame-Options") == "DENY"
     assert "Referrer-Policy" in response.headers
+    # REST API keeps the strict CSP (Swagger/ReDoc use a relaxed policy).
+    assert "default-src 'none'" in response.headers.get("Content-Security-Policy", "")
+
+
+def test_docs_use_relaxed_csp_and_still_set_other_headers(client: TestClient) -> None:
+    for path in ("/docs", "/redoc"):
+        response = client.get(path)
+        assert response.status_code == 200, path
+        csp = response.headers.get("Content-Security-Policy", "")
+        assert "cdn.jsdelivr.net" in csp, path
+        assert "default-src 'none'" not in csp, path
+        assert response.headers.get("X-Content-Type-Options") == "nosniff"
+        assert response.headers.get("X-Frame-Options") == "DENY"
+        assert "Referrer-Policy" in response.headers
+        assert "Permissions-Policy" in response.headers
+
+
+def test_api_json_keeps_strict_csp(client: TestClient) -> None:
+    for path in ("/api/v1/health", "/openapi.json"):
+        response = client.get(path)
+        assert response.status_code == 200, path
+        csp = response.headers.get("Content-Security-Policy", "")
+        assert "default-src 'none'" in csp, path
+        assert "cdn.jsdelivr.net" not in csp, path
 
 
 def test_health_endpoint_v1_alias(client: TestClient) -> None:
