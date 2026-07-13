@@ -5,7 +5,7 @@ import { ROUTES } from "@/shared/constants/routes";
 export const metadata = createPageMetadata({
   title: "Contact",
   description:
-    "Contact the SitePilot AI team by email, GitHub, or LinkedIn. Send a message — form delivery is coming soon.",
+    "Contact the SitePilot AI team by email or LinkedIn. Send a message — form delivery is coming soon.",
   path: ROUTES.contact,
 });
 

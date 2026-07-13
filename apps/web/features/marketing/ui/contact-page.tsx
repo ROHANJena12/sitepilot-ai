@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Linkedin, Mail } from "lucide-react";
 
 import { siteConfig } from "@/shared/config/site";
 import { Reveal } from "@/shared/ui/motion";
@@ -19,17 +19,10 @@ const CHANNELS = [
     external: false,
   },
   {
-    icon: Github,
-    title: "GitHub",
-    body: "Issues, discussions, and source",
-    href: siteConfig.links.github,
-    external: true,
-  },
-  {
     icon: Linkedin,
     title: "LinkedIn",
-    body: "Company updates",
-    href: siteConfig.links.linkedin,
+    body: "Connect with me on LinkedIn",
+    href: "https://www.linkedin.com/in/rohan-jena-589849210/",
     external: true,
   },
 ] as const;
@@ -49,7 +42,7 @@ export function ContactPage() {
           <Heading id="contact-channels-heading" level="h2" className="sr-only">
             Contact channels
           </Heading>
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="mx-auto grid max-w-2xl gap-4 sm:grid-cols-2">
             {CHANNELS.map((channel, index) => (
               <Reveal key={channel.title} delay={index * 0.05}>
                 <a

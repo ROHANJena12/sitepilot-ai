@@ -6,7 +6,7 @@ export const siteConfig = {
   description:
     "Analyze any public website and get a business-ready health report — SEO, performance, security, accessibility, and AI recommendations that explain what to fix first.",
   url: "https://sitepilot.ai",
-  email: "hello@sitepilot.ai",
+  email: "jenarohan23@gmail.com",
   links: {
     github: "https://github.com/sitepilot-ai",
     linkedin: "https://www.linkedin.com/company/sitepilot-ai",
